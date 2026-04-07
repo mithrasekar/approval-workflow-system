@@ -44,8 +44,3 @@ A robust, multi-level approval workflow system built for enterprise purchase req
 - **Manager**: `mithra@isquare.com` / `password123`
 - **Sales Executive**: `kavya@isquare.com` / `password123`
 
-## 📦 How to Submit / Package
-To deliver the project to the client, it is recommended to:
-1. Delete all `node_modules` folders from both `/frontend` and `/backend`.
-2. ZIP the entire root folder.
-3. Ensure the `database_migration.sql` and `api_documentation.md` are included in the root for easy access.
