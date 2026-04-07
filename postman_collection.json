@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "473bf52a-c65d-4c7d-a298-a2bd54bacedb",
+		"name": "Approval Workflow System",
+		"description": "API collection for the ISquare Approval Workflow System project.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"identity\": \"mithra@isquare.com\",\n    \"password\": \"password123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Purchase Requests",
+			"item": [
+				{
+					"name": "Create PR",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customer_name\": \"Google\",\n    \"product_name\": \"Cloud Infrastructure\",\n    \"quantity\": 1,\n    \"unit_price\": 50000,\n    \"created_by\": 101\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/pr",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pr"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get PR List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/pr/list?page=1&limit=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pr",
+								"list"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Approvals",
+			"item": [
+				{
+					"name": "Get Pending Approvals",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/approval/pending?user_id=102",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"approval",
+								"pending"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "102"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Approve Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 102,\n    \"remarks\": \"Approved after budget review.\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/approval/:id/approve",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"approval",
+								":id",
+								"approve"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reject Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 102,\n    \"remarks\": \"Price exceeds quarterly limit.\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/approval/:id/reject",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"approval",
+								":id",
+								"reject"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/admin/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}

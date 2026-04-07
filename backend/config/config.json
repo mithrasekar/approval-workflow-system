@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "approval_user",
+    "password": "ITriangle",
+    "database": "approval_process",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "approval_user",
+    "password": "ITriangle",
+    "database": "approval_process_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "approval_user",
+    "password": "ITriangle",
+    "database": "approval_process_prod",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
