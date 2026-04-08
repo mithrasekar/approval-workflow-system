@@ -100,11 +100,8 @@ const CreatePR = () => {
     const navigate = useNavigate();
     const { notifySuccess, notifyError, snackbar, closeSnackbar } = useNotify();
     useEffect(() => {
-        const originalOverflow = document.body.style.overflow;
-        document.body.style.overflow = 'hidden';
-        return () => {
-            document.body.style.overflow = originalOverflow; // restore on unmount
-        };
+        // Ensure body allows scrolling if content overflows
+        document.body.style.overflow = 'auto';
     }, []);
     const [formData, setFormData] = useState({
         pr_number: `PR-${Math.floor(Math.random() * 10000).toString().padStart(4, '0')}`,
@@ -178,7 +175,7 @@ const CreatePR = () => {
     })();
 
     return (
-        <Box sx={{ height: '100vh', background: theme.bg, py: 2 }}>
+        <Box sx={{ minHeight: '100vh', background: theme.bg, py: 2, overflowY: 'auto' }}>
             <Container maxWidth={false} sx={{ px: { xs: 2, md: 6 } }}>
                 {/* ── Top Navigation ── */}
                 <Box sx={{ mb: 2 }}>

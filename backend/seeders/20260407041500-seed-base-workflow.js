@@ -40,8 +40,8 @@ module.exports = {
       {
         rule_id: 1,
         level_no: 1,
-        approver_type: 'USER',
-        approver_user_id: 102, // Specifically Mithra
+        approver_type: 'ROLE',
+        approver_role_id: 2, // Any Manager
         is_mandatory: true,
         created_at: new Date(),
         updated_at: new Date()
